@@ -1,0 +1,18 @@
+@import './colors.scss';
+
+$navBarHeight: 47PX;
+$tabBarHeight: 60PX;
+$submitBarHeight: 83PX;
+$tabHeaderHeight: 50PX;
+
+$pageBottom: 0PX;
+
+@supports (bottom: constant(safe-area-inset-bottom)) {
+  $pageBottom: constant(safe-area-inset-bottom);
+}
+
+@supports (bottom: env(safe-area-inset-bottom)) {
+  $pageBottom: env(safe-area-inset-bottom);
+}
+
+$tabBarBottom: calc(#{$tabBarHeight} + #{$pageBottom});

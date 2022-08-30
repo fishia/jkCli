@@ -1,0 +1,68 @@
+@import '~taro-ui/dist/style/components/icon.scss';
+@import "~taro-ui/dist/style/components/load-more.scss";
+@import "~taro-ui/dist/style/components/activity-indicator.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+
+@import url('./assets/styles/iconfont.scss');
+@import url('./assets/styles/global.scss');
+
+.at-load-more {
+  background-color: #f5f7fa;
+  padding-bottom: 10px;
+  height: 110px;
+
+  &__tip,
+  .at-activity-indicator__content,
+  .at-button__text {
+    text-align: center;
+    width: 100%;
+    color: $textColor;
+    font-size: 24px;
+  }
+
+  .at-button {
+    border: none;
+  }
+}
+
+.at-tabs__header {
+  z-index: 800;
+  height: $tabHeaderHeight;
+  border-bottom: 1PX solid $bgColor2;
+}
+
+.at-tabs__item {
+  font-size: 30px;
+  color: $textColor;
+  font-weight: 500;
+  line-height: 27PX;
+}
+
+
+.at-tabs__item--active {
+  font-size: 32px;
+  color: $primaryColor !important;
+  font-weight: 700;
+
+  .at-tabs__item-underline {
+    background-color: $primaryColor;
+    height: 4px;
+    width: 10%;
+    transform: scaleX(1) translateX(450%) !important;
+    // width: 36px;
+    // transform: scaleX(1) translateX(160px) !important;
+    transition: none !important;
+  }
+}
+
+// h5 tabbar样式
+.weui-tabbar {
+  padding-top: 6PX;
+  padding-bottom: calc(6PX + #{$pageBottom});
+}
+
+.weui-tabbar__icon {
+  width: 20PX;
+  height: 20PX;
+  margin-bottom: 5PX;
+}

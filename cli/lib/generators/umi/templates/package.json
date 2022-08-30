@@ -1,0 +1,113 @@
+{
+  "name": "react-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "start:menu": "cross-env MENU=1 umi dev",
+    "build": "cross-env UMI_ENV=prod umi build",
+    "build:noCompress": "cross-env UMI_ENV=prod COMPRESS=none umi build",
+    "build:analyze": "cross-env UMI_ENV=prod ANALYZE=1 umi build",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,less,md,json}'",
+    "prettier:check": "prettier --check \"src/**/*+(js|less|css|jsx)\"",
+    "pretty-quick": "pretty-quick",
+    "lintfix:style": "stylelint src/**/*.{less,css} --fix",
+    "release": "release-it --no-npm.publish",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0",
+    "g-page": "umi g page",
+    "p2md": "babel-node --presets @babel/preset-env permission2md.js",
+<% if (isTypeScript) { -%>
+    "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
+<% } -%>
+<% if (!isTypeScript) { -%>
+    "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix"
+<% } -%>
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,less,md,json}": [
+      "npm run prettier:check"
+    ],
+    "src/**/*+(js|jsx)": "npm run lint"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    }
+  },
+  "changelog": {
+    "emojis": true,
+    "authorName": true
+  },
+  "dependencies": {
+    "@ahooksjs/use-request": "^2.8.3",
+    "@vtx/components": "latest",
+    "@vtx/hooks": "latest",
+    "@vtx/utils": "latest",
+    "ahooks": "^2.9.4",
+    "antd": "3.26.19",
+    "axios": "^0.21.0",
+    "classnames": "^2.2.6",
+    "dayjs": "^1.10.4",
+<% if (isTypeScript) { -%>
+    "@types/jest": "^23.3.12",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-test-renderer": "^16.0.3",
+<% } -%>
+<%_ if(plugins.indexOf('echarts') > -1) { _%>
+    "echarts": "^4.9.0",
+    "echarts-for-react": "^2.0.16",
+<%_ } _%>
+<%_ if(plugins.indexOf('react-virtualized') > -1) { _%>
+    "react-virtualized": "^9.22.3",
+<%_ } _%>
+    "lodash": "^4.17.20",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "updeep": "^1.2.0",
+    "vtx-ui": "latest",
+<% if (isTypeScript) { -%>
+    "umi": "^3.3.7",
+    "umi-types": "^0.3.0"
+<% } else { -%>
+    "umi": "^3.3.7"
+<% } -%>
+  },
+  "devDependencies": {
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.28",
+    "@vtx/eslint-config-vortex": "^1.1.0",
+    "@vtx/umi-plugin-generate": "latest",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "conventional-changelog-cli": "^2.1.1",
+    "conventional-changelog-custom-config": "^0.3.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^4.3.8",
+    "js-yaml": "^4.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^3.1.0",
+    "release-it": "^14.4.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0"
+  }
+}

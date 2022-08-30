@@ -1,0 +1,82 @@
+{
+  "name": "ymtd-taro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "医脉同道 · Taro （M 站/小程序）",
+  "templateInfo": {
+    "name": "redux",
+    "typescript": true,
+    "css": "sass"
+  },
+  "scripts": {
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "build-prod:weapp": "taro build --type weapp",
+    "build-prod:h5": "taro build --type h5",
+    "build-test:weapp": "cross-env TESTING=true taro build --type weapp",
+    "build-test:h5": "cross-env TESTING=true npm run build:h5",
+    "build:weapp": "taro build --type weapp",
+    "build:h5": "taro build --type h5",
+    "test:weapp": "cross-env TESTING=true taro build --type weapp",
+    "test:h5": "cross-env TESTING=true npm run build:h5"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "contributors": [
+    "Holder Zhang <zfd_yes@163.com> (https://zzfd.github.io/)",
+    "Frank Pu <1@paperplane.cc> (https://paperplane.cc/)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@datarangers/sdk-mp": "^1.7.0",
+    "@rongcloud/imlib-v4": "^4.4.8",
+    "@tarojs/components": "3.2.10",
+    "@tarojs/react": "3.2.10",
+    "@tarojs/runtime": "3.2.10",
+    "@tarojs/taro": "3.2.10",
+    "classnames": "^2.3.1",
+    "dayjs": "1.10.4",
+    "ismobilejs": "^1.1.1",
+    "lodash": "^4.17.21",
+    "ramda": "^0.27.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sa-sdk-miniprogram": "^1.14.13",
+    "taro-ui": "3.0.0-alpha.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@babel/runtime": "^7.7.7",
+    "@tarojs/mini-runner": "3.2.10",
+    "@tarojs/webpack-runner": "3.2.10",
+    "@types/ramda": "^0.27.40",
+    "@types/react": "^17.0.2",
+    "@types/react-redux": "^7.1.16",
+    "@types/terser-webpack-plugin": "^5.0.3",
+    "@types/webpack-env": "^1.13.6",
+    "@types/wechat-miniprogram": "^3.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-ramda": "^2.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-taro": "3.2.10",
+    "cross-env": "^7.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-taro": "3.2.10",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "2.2.1",
+    "stylelint": "9.3.0",
+    "typescript": "^4.1.0",
+    "webpack-bundle-analyzer": "^4.4.2"
+  }
+}
